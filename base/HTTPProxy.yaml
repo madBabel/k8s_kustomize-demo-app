@@ -1,0 +1,26 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: nginx-demo
+  namespace: demo-app
+  labels:
+    app: demo-app
+    tier: ingress
+spec:
+  virtualhost:
+    fqdn: demo.local
+  routes:
+    - conditions:
+        - prefix: /web
+      pathRewritePolicy:
+        replacePrefix:
+          - prefix: /web
+            replacement: /
+      services:
+        - name: ms-web
+          port: 80
+    - conditions:
+        - prefix: /api
+      services:
+        - name: ms-api
+          port: 80

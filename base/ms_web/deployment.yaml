@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-web
+  namespace: demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-web
+  template:
+    metadata:
+      labels:
+        app: ms-web
+    spec:
+      containers:
+        - name: ms-web
+          image: nginx:alpine
+          ports:
+            - containerPort: 80

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-api
+  namespace: demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-api
+  template:
+    metadata:
+      labels:
+        app: ms-api
+    spec:
+      containers:
+        - name: ms-api
+          image: hashicorp/http-echo
+          args:
+            - "-text=$(HELLO_MESSAGE)"
+          env:
+            - name: HELLO_MESSAGE
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: hello
+          ports:
+            - containerPort: 5678
