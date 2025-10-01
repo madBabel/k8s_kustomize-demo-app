@@ -1,12 +1,13 @@
 # EDITAR SEGUN CORRESPONDA
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: demo-app
+namespace: prod
 
 commonLabels:
   environment: prod
 
-
+resources:
+  - ./namespace.yaml
 
 bases:
 - ../../base
@@ -26,6 +27,7 @@ secretGenerator:
 
 
 patchesStrategicMerge:
+  - ./HTTPProxyPatchEntorno.yaml
   - ./ms_web/patch_image.yaml
   - ./ms_api/patch_image.yaml
 

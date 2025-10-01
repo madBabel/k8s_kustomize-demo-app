@@ -2,7 +2,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ms-web
-  namespace: demo-app
 spec:
   selector:
     app: ms-web

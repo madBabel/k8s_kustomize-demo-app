@@ -1,0 +1,11 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: httpproxy
+  annotations:
+  labels:
+    environment: prod
+spec:
+  virtualhost:
+    fqdn: www.demo.com
+  

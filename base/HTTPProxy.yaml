@@ -1,14 +1,13 @@
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: nginx-demo
-  namespace: demo-app
+  name: httpproxy
   labels:
     app: demo-app
     tier: ingress
 spec:
   virtualhost:
-    fqdn: demo.local
+    fqdn: anything.com
   routes:
     - conditions:
         - prefix: /web

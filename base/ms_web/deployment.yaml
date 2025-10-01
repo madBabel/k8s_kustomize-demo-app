@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ms-web
-  namespace: demo-app
 spec:
   replicas: 1
   selector:

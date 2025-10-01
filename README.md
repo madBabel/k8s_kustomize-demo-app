@@ -63,14 +63,15 @@ Esto desplegará:
 ### 2. Verificar recursos
 
 ```bash
-kubectl get all -n demo-app
+kubectl get all -n dev
+kubectl get all -n prod
 ```
 
 ### 3. Revisar logs
 
 ```bash
-kubectl logs -l app=ms-api -n demo-app
-kubectl logs -l app=ms-web -n demo-app
+kubectl logs -l app=ms-api -n dev
+kubectl logs -l app=ms-web -n dev
 ```
 
 ## 🌐 Probar con Contour y HTTPProxy
