@@ -31,3 +31,8 @@ patchesStrategicMerge:
   - ./ms_web/patch_image.yaml
   - ./ms_api/patch_image.yaml
 
+images:
+  - name: hashicorp/http-echo
+    newTag: "latest"
+  - name: nginx
+    newTag: "latest"
