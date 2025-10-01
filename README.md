@@ -66,7 +66,7 @@ Esto desplegará:
 kubectl get all -n demo-app
 ```
 
-### 4. Revisar logs
+### 3. Revisar logs
 
 ```bash
 kubectl logs -l app=ms-api -n demo-app
