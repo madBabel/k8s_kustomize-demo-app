@@ -1,0 +1,33 @@
+resources:
+  - ../../base
+  - namespace.yaml
+
+configMapGenerator:
+  - name: app-config
+    files:
+      - config/application.properties
+
+secretGenerator:
+  - name: app-secrets
+    files:
+      - secrets/.env.secrets
+
+patches:
+  - target:
+      group: projectcontour.io
+      version: v1
+      kind: HTTPProxy
+      name: httpproxy
+    path: ./HTTPProxyPatchEntorno_json6902.yaml
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: ms-api
+    path: ./ms_api/patch_image_json6902.yaml
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: ms-web
+    path: ./ms_web/patch_image_json6902.yaml

@@ -1,0 +1,6 @@
+- op: add
+  path: /metadata/labels/environment
+  value: prod
+- op: replace
+  path: /spec/virtualhost/fqdn
+  value: www.demo.com

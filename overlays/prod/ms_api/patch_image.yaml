@@ -4,3 +4,14 @@ metadata:
   name: ms-api
 spec:
   replicas: 6
+  template:
+    spec:
+      containers:
+        - name: ms-api
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "1000m"
+            limits:
+              memory: "512Mi"
+              cpu: "2000m"

@@ -1,0 +1,6 @@
+- op: add
+  path: /metadata/labels/environment
+  value: dev
+- op: replace
+  path: /spec/virtualhost/fqdn
+  value: demo.local
